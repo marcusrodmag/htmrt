@@ -12,16 +12,14 @@ Stack de infraestrutura que provisiona um ambiente para rodar uma aplicação ba
 - Automatização do processo de build da Aplicação Web e implantação de todos os recursos no serviço cloud utilizado
 - Documentação detalhada e instruções para execução em ambiente real (produção e desenvolvimento).
 
-## Tecnologias sugeridas:
-Pode-se fazer uso das seguintes tecnologias:
-*   Docker
+## Tecnologias utilizadas:
+
 *   Terraform
-*   Ansible
+*   Docker
 *   Kubernetes
+*   Ansible
 
-OBS: outras ferramentas/soluções são bem vindas também, desde que funcione de forma simples e eficiente.
-
-## Será avaliado:
+## Foi priorizado:
 
 - Organização
 - Qualidade da documentacão
@@ -29,3 +27,13 @@ OBS: outras ferramentas/soluções são bem vindas também, desde que funcione d
 - Elegância na solução proposta
 - Simplicidade e eficiência
 - Técnicas e boas práticas de segurança
+
+## Referências
+- Source Code Frontend: https://github.com/marcusrodmag/htmrt-frontend.git
+- Source Code Backend: https://github.com/marcusrodmag/htmrt-backend.git
+- Source Code Infra as Code: https://github.com/marcusrodmag/htmrt.git
+- GitOps (CI/CD): https://cloud.google.com/kubernetes-engine/docs/tutorials/gitops-cloud-build?hl=pt-br
+- Load Balancer DOCs:
+* https://kubernetes.io/docs/tasks/access-application-cluster/connecting-frontend-backend/
+* https://github.com/googlesamples
+* https://github.com/terraform-google-modules/terraform-google-lb-http/tree/master/examples/https-gke
