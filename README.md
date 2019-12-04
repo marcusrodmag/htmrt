@@ -1,32 +1,43 @@
 # htmrt
 
-Stack de infraestrutura que provisiona um ambiente para rodar uma aplicação backend rest, com duas réplicas respondendo em um Load Balancer, e uma aplicação frontend estática, ambas respondendo pelo mesmo DNS, porém com contextos distintos.
+Este estudo de caso tem como objetivo criar uma stack de infraestrutura que provisiona um ambiente para executar uma aplicação backend rest, com duas réplicas respondendo em um Load Balancer, e uma aplicação frontend estática, ambas respondendo pelo mesmo DNS, porém com contextos distintos.
 
-## Requisitos:
+## Ferramentas utilizadas:
 
-- Ambiente Cloud (AWS, Google, Azure, etc)
-- Infraestrutura básica de rede (firewall, subnets, etc)
-- Load Balancer
-- Aplicação Web: pode ser qualquer tipo de aplicação que demonstre a utilização de Docker e conteúdo estático
-- Resolução de DNS para o Load Balancer
-- Automatização do processo de build da Aplicação Web e implantação de todos os recursos no serviço cloud utilizado
-- Documentação detalhada e instruções para execução em ambiente real (produção e desenvolvimento).
+- Ambiente Cloud: Google Cloud Platform
+- Infraestrutura básica de rede: 
+*   Um único ip externo para acesso ao cluster (e resolução DNS)
+*   Regras de firewall que liberam apenas o acesso a porta 80 do entrypoint
+*   Subredes isolando ambientes de desenvolvimento e produção
+- Load Balancer para distribuir o fluxo de requisições entre 02 pods do backend
+- Aplicação Web: Um unico pod usando NGINX que redireciona as requisições para o backed e ao mesmo tempo fornece arquivos estáticos CSS e imagens referenciados pelo código HTML gerado dinamicamente pelo backend. 
+- Processo de build automatizado, acionados através de gatilhos que monitoram as alterações no repositório de código fonte (GITHUB), gerando imagens docker e realizando sua implantação no Kubernetes de acordo com o branch alterado.
+*   Branch Desenvolvimento: Implantação no cluster DEV
+*   Master: Implantação no ambiente de PRD
 
 ## Tecnologias utilizadas:
 
-*   Terraform
-*   Docker
-*   Kubernetes
-*   Ansible
+*   Terraform - Responsável por criar a infraestrutura (Rede, permissões, regras de firewall e o cluster Kubernetes)
+*   Docker - Gerenciador de container
+*   Kubernetes - Orquestrador de containers
+*   Skaffold - Ferramenta utilizada para automatizar a implantação em ambiente de testes
+*   NGINX - Webserver utilizado como procedor de conteúdo estático e também como proxy para o backend.
+*   Python - Linguagem utilizada no backend
+*   Google Cloud Build - Ferramenta utilizada para Integração Contínua (empacotamento e testes automatizados) e Entrega Contínua
 
-## Foi priorizado:
 
-- Organização
-- Qualidade da documentacão
-- Uso de ferramentas de automatização
-- Elegância na solução proposta
-- Simplicidade e eficiência
-- Técnicas e boas práticas de segurança
+## Estrutura de projetos:
+
+- htmrt - Projeto que recebe os formulário terraform e os arquivos de configuração do Kubernetes (manifest)
+- htmrt-backend - Código fonte e instruções de geração de imagem do backend
+- htmrt-frontend - Conteúdo estático e configuração do NGINX
+
+## Técnias e boas práticas utilizadas:
+
+- GitOPS
+- Integração contínua
+- Entrega Contínua
+
 
 ## Referências
 - Source Code Frontend: https://github.com/marcusrodmag/htmrt-frontend.git

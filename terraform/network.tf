@@ -18,33 +18,34 @@ resource "google_compute_address" "internal_with_gce_endpoint" {
 	address_type = "INTERNAL"
 }
 
-# resource "google_compute_firewall" "k8s-allow-project-network" {
-# 	name    = "${terraform.workspace}-htmrt-fw-k8s-localnw"
-# 	network = google_compute_network.htmrt-network.self_link
-# 	priority = "1000"
-# 	source_ranges = ["${google_container_cluster.htmrt-cluster.cluster_ipv4_cidr}"]
+resource "google_compute_firewall" "k8s-allow-project-network" {
+	name    = "${terraform.workspace}-htmrt-fw-k8s-localnw"
+	network = google_compute_network.htmrt-network.self_link
+	priority = "1000"
+	source_ranges = ["${google_container_cluster.htmrt-cluster.cluster_ipv4_cidr}"]
 
-# 	allow {
-# 		protocol = "tcp"
-# 	}
-# 	allow {
-# 		protocol = "udp"
-# 	}
-# 	allow {
-# 		protocol = "icmp"
-# 	}
-# 	allow {
-# 		protocol = "esp"
-# 	}
-# 	allow {
-# 		protocol = "ah"
-# 	}
-# 	allow {
-# 		protocol = "sctp"
-# 	}
+	allow {
+		protocol = "tcp"
+	}
+	allow {
+		protocol = "udp"
+	}
+	allow {
+		protocol = "icmp"
+	}
+	allow {
+		protocol = "esp"
+	}
+	allow {
+		protocol = "ah"
+	}
+	allow {
+		protocol = "sctp"
+	}
 	
-# }
+}
 
+## A criação efetiva do DNS requer o registro do dominio htmrt.com
 # resource "google_dns_record_set" "k8s-lb-dns" {
 #   name = "${terraform.workspace}-htmrt.${google_dns_managed_zone.dns-zone.dns_name}"
 #   type = "A"
@@ -57,5 +58,5 @@ resource "google_compute_address" "internal_with_gce_endpoint" {
 
 # resource "google_dns_managed_zone" "dns-zone" {
 #   name     = "${terraform.workspace}-dns-zone"
-#   dns_name = "prod.mydomain.com."
+#   dns_name = "htmrt.com"
 # }
