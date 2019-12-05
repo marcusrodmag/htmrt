@@ -36,7 +36,7 @@ Este estudo de caso tem como objetivo criar uma stack de infraestrutura que prov
 
 - GitOPS
 - Integração contínua
-- Entrega Contínua
+- Entrega contínua
 
 
 ## Referências
