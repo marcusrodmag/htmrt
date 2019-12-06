@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: server
-        image: gcr.io/htmrt-260621/htmrt-backend:249ab5f
+        image: gcr.io/GOOGLE_CLOUD_PROJECT/htmrt-backend:aa7045c
         ports:
         - containerPort: 8080
         env:
@@ -36,4 +36,4 @@ spec:
         - name: FLASK_DEBUG
           value: 'True'
         - name: ENV_NAME
-          value: 'PROD'
+          value: 'Production'
