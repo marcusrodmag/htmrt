@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: htmrt-frontend
+spec:
+  type: LoadBalancer
+  loadBalancerIP: "1.1.1.1"
+  selector:
+    app: htmrt-frontend
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: htmrt-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: htmrt-frontend
+  template:
+    metadata:
+      labels:
+        app: htmrt-frontend
+    spec:
+      containers:
+      - name: server
+        image: gcr.io/marcusrodmag/htmrt-frontend
+        ports:
+        - containerPort: 8080
+        env:
+        - name: RUN_PORT
+          value: "8080"
+        - name: FLASK_DEBUG
+          value: 'True'
