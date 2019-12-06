@@ -4,7 +4,7 @@ metadata:
   name: htmrt-frontend
 spec:
   type: LoadBalancer
-  loadBalancerIP: ""
+  loadBalancerIP: "35.238.105.178"
   selector:
     app: htmrt-frontend
   ports:
@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: server
-        image: gcr.io/GOOGLE_CLOUD_PROJECT/htmrt-frontend:87143db
+        image: gcr.io/GOOGLE_CLOUD_PROJECT/htmrt-frontend:dad7aed
         ports:
         - containerPort: 8080
         env:
