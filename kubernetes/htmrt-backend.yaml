@@ -36,4 +36,4 @@ spec:
         - name: FLASK_DEBUG
           value: 'True'
         - name: ENV_NAME
-          value: 'Production'
+          value: 'production'
