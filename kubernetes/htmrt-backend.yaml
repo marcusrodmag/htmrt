@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: server
-        image: gcr.io/htmrt-260621/htmrt-backend:bed1eb2
+        image: gcr.io/htmrt-260621/htmrt-backend:2c8ba4a
         ports:
         - containerPort: 8080
         env:
@@ -36,4 +36,4 @@ spec:
         - name: FLASK_DEBUG
           value: 'True'
         - name: ENV_NAME
-          value: 'Production'
+          value: 'production'
