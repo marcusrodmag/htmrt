@@ -35,11 +35,19 @@ variable "project" {
 }
 
 variable "region" {
-	default = "us-central1"
+	type = map(string)
+	default = {
+		prd = "us-central1"
+		dev = "us-west1"
+	}
 }
 
 variable "zone" {
-	default = "us-central1-f"
+	type = map(string)
+	default = {
+		prd = "us-central1-f"
+		dev = "us-west1-c"
+	}
 }
 
 variable "network-default" {

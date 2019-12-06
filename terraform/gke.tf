@@ -4,7 +4,7 @@ resource "google_container_cluster" "htmrt-cluster" {
 	name						= var.cluster_name_map["${terraform.workspace}"]
 	description					= "Cluster htmrt - ${terraform.workspace}"
 	project						= var.project
-	location					= var.zone
+	location					= var.zone["${terraform.workspace}"]
 	network 					= var.network-default
 	subnetwork 					= var.subnetwork-default
 	initial_node_count 			= var.initial_node_count_map["${terraform.workspace}"]
