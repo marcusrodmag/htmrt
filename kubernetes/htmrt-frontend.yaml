@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: server
-        image: gcr.io/marcusrodmag/htmrt-frontend
+        image: gcr.io/htmrt-260621/htmrt-frontend:SHORT_SHA
         ports:
         - containerPort: 8080
         env:
