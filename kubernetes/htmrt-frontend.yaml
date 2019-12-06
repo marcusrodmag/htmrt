@@ -4,7 +4,7 @@ metadata:
   name: htmrt-frontend
 spec:
   type: LoadBalancer
-  loadBalancerIP: "1.1.1.1"
+  loadBalancerIP: "35.238.105.178"
   selector:
     app: htmrt-frontend
   ports:
@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: server
-        image: gcr.io/htmrt-260621/htmrt-frontend:SHORT_SHA
+        image: gcr.io/htmrt-260621/htmrt-frontend:30fd4ad
         ports:
         - containerPort: 8080
         env:
