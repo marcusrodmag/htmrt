@@ -21,7 +21,7 @@ Pode-se fazer uso das seguintes tecnologias:
 
 OBS: outras ferramentas/soluções são bem vindas também, desde que funcione de forma simples e eficiente.
 
-## Será avaliado:
+## Será priorizado:
 
 - Organização
 - Qualidade da documentacão
