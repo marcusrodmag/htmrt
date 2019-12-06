@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: server
-        image: gcr.io/htmrt-260621/htmrt-backend:927ebd3
+        image: gcr.io/htmrt-260621/htmrt-backend:7cdaf0b
         ports:
         - containerPort: 8080
         env:
