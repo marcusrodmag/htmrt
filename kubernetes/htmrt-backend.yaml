@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: server
-        image: gcr.io/GOOGLE_CLOUD_PROJECT/htmrt-backend:9e65f8d
+        image: gcr.io/htmrt-260621/htmrt-backend:6bb7aa7
         ports:
         - containerPort: 8080
         env:
