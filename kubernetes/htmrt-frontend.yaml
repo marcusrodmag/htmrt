@@ -10,7 +10,7 @@ spec:
   ports:
   - name: http
     port: 80
-    targetPort: 8080
+    targetPort: 80
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -28,11 +28,11 @@ spec:
     spec:
       containers:
       - name: server
-        image: gcr.io/htmrt-260621/htmrt-frontend:c43c9dc
+        image: gcr.io/htmrt-260621/htmrt-frontend:1790560
         ports:
-        - containerPort: 8080
+        - containerPort: 80
         env:
         - name: RUN_PORT
-          value: "8080"
+          value: "80"
         - name: FLASK_DEBUG
           value: 'True'
