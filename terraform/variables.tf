@@ -25,8 +25,8 @@ variable "initial_node_count_map" {
 variable "node_size_map" {
 	type = map(string)
 	default = {
-		dev     = "n1-standard-1"
-		prd      = "n1-standard-1"
+		dev     = "n1-standard-2"
+		prd      = "n1-standard-2"
 	}
 }
 
