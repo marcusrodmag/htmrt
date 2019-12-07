@@ -36,3 +36,4 @@ spec:
           value: "80"
         - name: FLASK_DEBUG
           value: 'True'
+      restartPolicy: Always
