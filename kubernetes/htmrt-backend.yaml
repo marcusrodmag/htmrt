@@ -16,7 +16,7 @@ kind: Deployment
 metadata:
   name: htmrt-backend
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: htmrt-backend
@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: server
-        image: gcr.io/htmrt-260621/htmrt-backend:2c8ba4a
+        image: gcr.io/htmrt-260621/htmrt-backend:2ca06c1
         ports:
         - containerPort: 8080
         env:
