@@ -9,10 +9,12 @@ resource "google_compute_subnetwork" "htmrt-subnetwork" {
   region        = "us-central1"
 }
 
-resource "google_compute_global_address" "default" {
-  name = "${terraform.workspace}-htmrt-external-ip"
-  address_type = "EXTERNAL"
-}
+# Limite de reservas de IP durante periodo de avaliação GCP. Reserva realizada manualmente.
+# resource "google_compute_global_address" "default" {
+#   name = "${terraform.workspace}-htmrt-external-ip"
+#   address_type = "EXTERNAL"
+# }
+
 resource "google_compute_address" "internal_with_gce_endpoint" {
 	name         = "${terraform.workspace}-htmrt-k8s-loadbalancer"
 	address_type = "INTERNAL"
