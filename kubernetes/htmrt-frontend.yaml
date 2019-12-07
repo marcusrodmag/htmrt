@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: server
-        image: gcr.io/htmrt-260621/htmrt-frontend:044822d
+        image: gcr.io/htmrt-260621/htmrt-frontend:f7926ad
         ports:
         - containerPort: 80
         env:
@@ -37,3 +37,4 @@ spec:
         - name: FLASK_DEBUG
           value: 'True'
       restartPolicy: Always
+
