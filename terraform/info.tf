@@ -14,6 +14,6 @@ output "cluster_name" {
   value = "${var.cluster_name_map["${terraform.workspace}"]}"
 }
 
-output "external_ip" {
-  value = google_compute_global_address.default.address
-}
+# output "external_ip" {
+#   value = google_compute_global_address.default.address
+# }
